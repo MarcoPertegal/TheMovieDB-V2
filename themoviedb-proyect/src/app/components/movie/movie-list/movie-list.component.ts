@@ -7,17 +7,8 @@ import { MovieService } from 'src/app/services/movie.service';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
 })
-export class MovieListComponent implements OnInit {
+export class MovieListComponent {
 
-  movieList: Movie[] = [];
-
-  constructor(private service: MovieService) { }
-
-  ngOnInit(): void {
-    this.service.getPopularList().subscribe(resp => {
-      this.movieList = resp.results;
-    });
-  }
 
 
 

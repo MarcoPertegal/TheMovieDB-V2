@@ -1,0 +1,16 @@
+img {
+    border-radius: 5%;
+    /* position: absolute; */
+}
+
+
+/* .contenedor {
+    border-radius: 5%;
+    position: relative;
+    display: inline-block;
+} */
+
+.text {
+    position: absolute;
+    background-color: rgb(197, 16, 16);
+}

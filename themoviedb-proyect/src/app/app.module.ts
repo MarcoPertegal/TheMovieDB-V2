@@ -11,6 +11,8 @@ import { FooterComponent } from './components/reutilizables/footer/footer.compon
 import { PageHomeComponent } from './ui/page-home/page-home.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { MovieListComponent } from './components/movie/movie-list/movie-list.component';
+import { MovieItemListComponent } from './components/movie/movie-item-list/movie-item-list.component';
+import { PageMovieListComponent } from './ui/page-movie-list/page-movie-list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { MovieListComponent } from './components/movie/movie-list/movie-list.com
     FooterComponent,
     PageHomeComponent,
     PageNotFoundComponent,
-    MovieListComponent
+    MovieListComponent,
+    MovieItemListComponent,
+    PageMovieListComponent
   ],
   imports: [
     BrowserModule,
