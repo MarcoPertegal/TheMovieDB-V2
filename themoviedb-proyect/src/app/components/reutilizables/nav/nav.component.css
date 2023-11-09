@@ -6,8 +6,30 @@ nav {
     background-color: black !important;
 }
 
+.full-width {
+    width: 100%;
+}
 
+ul li {
+    margin-left: 10%;
+}
 
+.row a:first-child {
+    margin-left: 2%;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(177, 177, 177);
+}
+
+a:hover {
+    color: rgb(215, 215, 215);
+}
+
+.nav-item.active {
+    color: #f50b0b;
+}
 
 /*img {
     width: 200px;
