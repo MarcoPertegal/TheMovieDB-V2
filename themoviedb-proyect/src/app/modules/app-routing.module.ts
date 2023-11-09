@@ -6,7 +6,7 @@ import { PageMovieListComponent } from '../ui/page-movie-list/page-movie-list.co
 
 const routes: Routes = [
   { path: 'page-home', component: PageHomeComponent },
-   { path: 'list', component: PageMovieListComponent },
+  { path: 'page-movie-list', component: PageMovieListComponent },
   { path: '', pathMatch: 'full', redirectTo: '/page-home' },
   { path: '**', component: PageNotFoundComponent }
 ];

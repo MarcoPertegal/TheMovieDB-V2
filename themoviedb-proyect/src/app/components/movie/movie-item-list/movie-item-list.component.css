@@ -16,7 +16,7 @@ img {
     max-height: 120px;
     color: aliceblue;
     /* background:linear-gradient(to top, rgba(0, 0, 0, 0.804) 60%, rgba(128, 128, 128, 0.985)); */
-    background:linear-gradient(to top, rgba(0, 0, 0, 0.804) 80%, rgba(128, 128, 128, 0));
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.804) 80%, rgba(128, 128, 128, 0));
     border-radius: 8%;
 
 }
@@ -27,11 +27,15 @@ img {
     white-space: nowrap
 }
 
-.boton{
+.boton {
+    margin-top: 13px;
     background-color: #D62247;
-    color: white;  
+    color: white;
+    width: 85px;
+    height: 40px;
+    font-size: 10pt;
 }
 
-.icono:hover{
+.icono:hover {
     color: #D62247;
 }
