@@ -1,0 +1,56 @@
+img {
+    width: 200px;
+}
+
+nav {
+    background-color: black !important;
+}
+
+.full-width {
+    width: 100%;
+}
+
+ul li {
+    margin-left: 10%;
+}
+
+.row a:first-child {
+    margin-left: 2%;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(177, 177, 177);
+}
+
+a:hover {
+    color: rgb(215, 215, 215);
+}
+
+.nav-item.active {
+    color: #f50b0b;
+}
+
+/*img {
+    width: 200px;
+    margin-left: 15%;
+}
+
+nav {
+    background-color: black !important;
+    padding-top: 12px;
+    padding-bottom: 12px;
+
+}
+
+#navbarText {
+    margin-left: 20%;
+}
+
+span {
+    margin-left: 70%;
+}
+
+ul li {
+    margin-left: 20%;
+}*/
