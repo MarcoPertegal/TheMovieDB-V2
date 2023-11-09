@@ -10,6 +10,7 @@ import { NavComponent } from './components/reutilizables/nav/nav.component';
 import { FooterComponent } from './components/reutilizables/footer/footer.component';
 import { PageHomeComponent } from './ui/page-home/page-home.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
+import { MovieListComponent } from './components/movie/movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.compon
     NavComponent,
     FooterComponent,
     PageHomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
