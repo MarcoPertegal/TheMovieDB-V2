@@ -6,6 +6,7 @@ img {
 
 .contenedor {
     position: relative;
+    min-width: 270px;
 }
 
 .text {

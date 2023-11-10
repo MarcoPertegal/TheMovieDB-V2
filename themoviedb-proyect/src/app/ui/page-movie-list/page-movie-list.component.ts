@@ -10,13 +10,24 @@ import { MovieService } from 'src/app/services/movie.service';
 export class PageMovieListComponent implements OnInit {
 
   movieList: Movie[] = [];
+  pageNumber: number = 1;
+  count: number = 0;
+  currentPage: number = 1;
 
   constructor(private service: MovieService) { }
 
   ngOnInit(): void {
     this.service.getPopularList().subscribe(resp => {
       this.movieList = resp.results;
+      this.loadNewPage();
     });
   }
 
+  loadNewPage() {
+    this.service.getMovies(this.pageNumber).subscribe(resp => {
+      this.movieList = resp.results;
+      this.count = resp.total_results;
+    })
+
+  }
 }
