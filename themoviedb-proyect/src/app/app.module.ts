@@ -12,6 +12,7 @@ import { PageHomeComponent } from './ui/page-home/page-home.component';
 import { PageNotFoundComponent } from './ui/page-not-found/page-not-found.component';
 import { MovieItemListComponent } from './components/movie/movie-item-list/movie-item-list.component';
 import { PageMovieListComponent } from './ui/page-movie-list/page-movie-list.component';
+import { FullWithCarrusellComponent } from './carrusel/full-with-carrusell/full-with-carrusell.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { PageMovieListComponent } from './ui/page-movie-list/page-movie-list.com
     PageHomeComponent,
     PageNotFoundComponent,
     MovieItemListComponent,
-    PageMovieListComponent
+    PageMovieListComponent,
+    FullWithCarrusellComponent
   ],
   imports: [
     BrowserModule,
