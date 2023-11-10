@@ -29,12 +29,16 @@ img {
 }
 
 .boton {
-    margin-top: 13px;
+    margin-top: 10px;
     background-color: #D62247;
     color: white;
     width: 85px;
-    height: 40px;
+    height: 35px;
     font-size: 10pt;
+}
+
+.boton:hover {
+    background-color: #96152f;
 }
 
 .icono:hover {
