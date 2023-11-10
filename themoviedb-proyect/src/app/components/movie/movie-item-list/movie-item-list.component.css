@@ -29,8 +29,12 @@ img {
 }
 
 .boton {
+    margin-top: 13px;
     background-color: #D62247;
     color: white;
+    width: 85px;
+    height: 40px;
+    font-size: 10pt;
 }
 
 .icono:hover {
