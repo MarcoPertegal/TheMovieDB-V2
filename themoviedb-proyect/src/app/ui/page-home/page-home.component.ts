@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie-list.interface';
+import { Serie } from 'src/app/models/serie-list.interface';
 import { MovieService } from 'src/app/services/movie.service';
+import { SerieService } from 'src/app/services/serie.service';
 
 
 @Component({
@@ -15,12 +17,17 @@ export class PageHomeComponent implements OnInit {
   //la ruta viene en backdrop_path de https://api.themoviedb.org/3/movie/5?api_key=18c6dd9c77bfcc97e862001655abfba9
 
   movieList: Movie[] = [];
+  serieList: Serie[] = [];
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService, private serieService: SerieService) { }
 
   ngOnInit(): void {
     this.movieService.getPopularList().subscribe(resp => {
       this.movieList = resp.results;
+    })
+
+    this.serieService.getPopularList().subscribe(resp => {
+      this.serieList = resp.results;
     })
   }
 }
