@@ -18,13 +18,12 @@ export class MovieService {
   getPopularList(): Observable<MovieListResponse> {
     return this.http.get<MovieListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyMarco}`);
   }
+  getPopularListPage(page: number): Observable<MovieListResponse> {
+    return this.http.get<MovieListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyMarco}&page=${page}`);
+  }
   getUpcomingList(): Observable<MovieListResponse> {
     return this.http.get<MovieListResponse>(`${environment.baseUrl}${API_BASE_URL}/upcoming?api_key=${environment.apiKeyMarco}`);
   }
-  getMovies(page: number): Observable<MovieListResponse> {
-    return this.http.get<MovieListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyFran}&page=${page}`);
-  }
-
   getMovieId(id: number): Observable<MovieDetailsResponse> {
     return this.http.get<MovieDetailsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}?api_key=${environment.apiKeyFran}`)
   }

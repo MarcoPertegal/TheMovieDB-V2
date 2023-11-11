@@ -18,14 +18,11 @@ export class PagePeopleListComponent implements OnInit {
   constructor(private service: PeopleService) { }
 
   ngOnInit(): void {
-    this.service.getActorList().subscribe(resp => {
-      this.actorList = resp.results;
-      this.loadNewPage();
-    });
+    this.loadNewPage();
   }
 
   loadNewPage() {
-    this.service.getActors(this.pageNumber).subscribe(resp => {
+    this.service.getActorsListPage(this.pageNumber).subscribe(resp => {
       this.actorList = resp.results;
       this.count = resp.total_results;
     });

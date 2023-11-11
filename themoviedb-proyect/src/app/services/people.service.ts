@@ -13,11 +13,11 @@ export class PeopleService {
 
   constructor(private http: HttpClient) { }
 
-  getActorList(): Observable<PeopleListResponse>{
+  getActorList(): Observable<PeopleListResponse> {
     return this.http.get<PeopleListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyFran}`);
   }
 
-  getActors(page: number): Observable<PeopleListResponse> {
+  getActorsListPage(page: number): Observable<PeopleListResponse> {
     return this.http.get<PeopleListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyFran}&page=${page}`);
   }
 }

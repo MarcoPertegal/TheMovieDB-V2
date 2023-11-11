@@ -16,6 +16,9 @@ export class SerieService {
   getPopularList(): Observable<SerieListResponse> {
     return this.http.get<SerieListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyMarco}`);
   }
+  getPopularListPage(page: number): Observable<SerieListResponse> {
+    return this.http.get<SerieListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyMarco}&page=${page}`);
+  }
 
 
 }
