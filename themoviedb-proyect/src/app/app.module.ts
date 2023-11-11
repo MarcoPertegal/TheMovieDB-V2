@@ -18,6 +18,7 @@ import { PagePeopleListComponent } from './ui/page-people-list/page-people-list.
 import { CarteleraComponent } from './components/movie/cartelera/cartelera.component';
 import { PageMovieDetailsComponent } from './ui/page-movie-details/page-movie-details.component';
 import { SerieItemListComponent } from './components/serie/serie-item-list/serie-item-list.component';
+import { PageSerieListComponent } from './ui/page-serie-list/page-serie-list.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { SerieItemListComponent } from './components/serie/serie-item-list/serie
     PagePeopleListComponent,
     CarteleraComponent,
     PageMovieDetailsComponent,
-    SerieItemListComponent
+    SerieItemListComponent,
+    PageSerieListComponent
   ],
   imports: [
     BrowserModule,

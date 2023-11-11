@@ -11,6 +11,7 @@ h4 {
 
 .list-group-horizontal>.list-group-item:first-child:not(:last-child) {
     margin-left: 0px !important;
+    padding-left: 0px !important;
 }
 
 .list-group-item {
