@@ -9,7 +9,7 @@ import { SerieService } from 'src/app/services/serie.service';
 })
 export class PageSerieListComponent implements OnInit {
 
-  movieList: Serie[] = [];
+  serieList: Serie[] = [];
   pageNumber: number = 1;
   count: number = 0;
   currentPage: number = 1;
@@ -17,10 +17,14 @@ export class PageSerieListComponent implements OnInit {
   constructor(private service: SerieService) { }
 
   ngOnInit(): void {
-    this.service.getPopularList().subscribe(resp => {
-      this.movieList = resp.results;
-      //this.loadNewPage();
-    });
+    this.loadNewPage();
   }
 
+  loadNewPage() {
+    this.service.getPopularListPage(this.pageNumber).subscribe(resp => {
+      this.serieList = resp.results;
+      this.count = resp.total_results;
+    })
+
+  }
 }
