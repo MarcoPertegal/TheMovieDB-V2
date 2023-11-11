@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieListResponse } from '../models/movie-list.interface';
 import { environment } from 'src/environments/environment';
+import { MovieDetailsResponse } from '../models/movie-details.interface';
 
 const API_BASE_URL = '/movie';
 
@@ -20,4 +21,8 @@ export class MovieService {
   getMovies(page: number): Observable<MovieListResponse> {
     return this.http.get<MovieListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyFran}&page=${page}`);
   }
+
+  getMovieId(id:number): Observable<MovieDetailsResponse> {
+    return this.http.get<MovieDetailsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}?api_key=${environment.apiKeyFran}`)
+  } 
 }

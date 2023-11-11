@@ -15,6 +15,8 @@ import { PageMovieListComponent } from './ui/page-movie-list/page-movie-list.com
 import { FullWithCarrusellComponent } from './components/carrusel/full-with-carrusell/full-with-carrusell.component';
 import { PeopleItemListComponent } from './components/people/people-item-list/people-item-list.component';
 import { PagePeopleListComponent } from './ui/page-people-list/page-people-list.component';
+import { CarteleraComponent } from './components/movie/cartelera/cartelera.component';
+import { PageMovieDetailsComponent } from './ui/page-movie-details/page-movie-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { PagePeopleListComponent } from './ui/page-people-list/page-people-list.
     PageMovieListComponent,
     FullWithCarrusellComponent,
     PeopleItemListComponent,
-    PagePeopleListComponent
+    PagePeopleListComponent,
+    CarteleraComponent,
+    PageMovieDetailsComponent
   ],
   imports: [
     BrowserModule,
