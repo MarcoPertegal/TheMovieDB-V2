@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { PeopleListResponse } from '../models/people-list.interface';
 import { environment } from 'src/environments/environment';
 import { PeopleDetailsResponse } from '../models/people-details.interface';
+import { PeopleDetailsMoviesResponse } from '../models/people-details-movies.interface';
 
 const API_BASE_URL = '/person';
 
@@ -25,6 +26,8 @@ export class PeopleService {
   getPeopleById(id: number): Observable<PeopleDetailsResponse> {
     return this.http.get<PeopleDetailsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}?api_key=${environment.apiKeyMarco}`)
   }
-
+  getPeopleMovies(id: number): Observable<PeopleDetailsMoviesResponse> {
+    return this.http.get<PeopleDetailsMoviesResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/combined_credits?api_key=${environment.apiKeyMarco}`)
+  }
 
 }
