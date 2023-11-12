@@ -16,11 +16,8 @@ export class CarteleraComponent implements OnInit {
   id!: number;
   route: ActivatedRoute = inject(ActivatedRoute);
   currentRate!: number;
-  movieVideo!: Video;
-  urlVideo: SafeResourceUrl | undefined;
 
-
-  constructor(private service: MovieService, private sanitizer: DomSanitizer, private router: Router){ 
+  constructor(private service: MovieService){ 
     this.id = this.route.snapshot.params['id'];
   }
 

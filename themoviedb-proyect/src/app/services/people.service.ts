@@ -20,4 +20,5 @@ export class PeopleService {
   getActorsListPage(page: number): Observable<PeopleListResponse> {
     return this.http.get<PeopleListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyFran}&page=${page}`);
   }
+
 }
