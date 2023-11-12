@@ -8,7 +8,7 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./page-upcoming-list.component.css']
 })
 export class PageUpcomingListComponent {
-  movieList: Movie[] = [];
+  upcomingList: Movie[] = [];
   pageNumber: number = 1;
   count: number = 0;
   currentPage: number = 1;
@@ -16,9 +16,14 @@ export class PageUpcomingListComponent {
   constructor(private service: MovieService) { }
 
   ngOnInit(): void {
-    this.service.getUpcomingList().subscribe(resp => {
-      this.movieList = resp.results;
-      //this.loadNewPage();
-    });
+    this.loadNewPage();
+  }
+
+  loadNewPage() {
+    this.service.getPopularListPage(this.pageNumber).subscribe(resp => {
+      this.upcomingList = resp.results;
+      this.count = resp.total_results;
+    })
+
   }
 }
