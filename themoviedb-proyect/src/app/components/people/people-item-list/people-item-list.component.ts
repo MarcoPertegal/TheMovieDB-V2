@@ -20,6 +20,6 @@ export class PeopleItemListComponent {
 
   peopleDetails(id: number) {
     console.log(this.actor.id);
-    this.router.navigate([`/page-actor/${id}`]);
+    this.router.navigate([`/page-actor-details/${id}`]);
   }
 }
