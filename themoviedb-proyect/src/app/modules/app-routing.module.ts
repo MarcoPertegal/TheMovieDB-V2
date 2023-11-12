@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'page-upcoming-list', component: PageUpcomingListComponent },
   { path: 'page-movie-details/:id', component: PageMovieDetailsComponent },
   { path: 'page-actor-details/:id', component: PagePeopleDetailsComponent },
-  { path: 'page-serie/:id', component: PageSerieDetailsComponent },
+  { path: 'page-serie-details/:id', component: PageSerieDetailsComponent },
   { path: '', pathMatch: 'full', redirectTo: '/page-home' },
   { path: '**', component: PageNotFoundComponent }
 ];
