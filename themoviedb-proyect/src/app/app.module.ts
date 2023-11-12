@@ -26,6 +26,7 @@ import { PagePeopleDetailsComponent } from './ui/page-people-details/page-people
 import { SomeDetailsComponent } from './components/movie/some-details/some-details.component';
 import { ReviewsMovieComponent } from './components/movie/reviews-movie/reviews-movie.component';
 import { MovieItemDetailsActorComponent } from './components/movie/movie-item-details-actor/movie-item-details-actor.component';
+import { PageUpcomingDetailsComponent } from './ui/page-upcoming-details/page-upcoming-details.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { MovieItemDetailsActorComponent } from './components/movie/movie-item-de
     PagePeopleDetailsComponent,
     SomeDetailsComponent,
     ReviewsMovieComponent,
-    MovieItemDetailsActorComponent
+    MovieItemDetailsActorComponent,
+    PageUpcomingDetailsComponent
   ],
   imports: [
     BrowserModule,
