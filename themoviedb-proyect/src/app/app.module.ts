@@ -24,6 +24,7 @@ import { PageUpcomingListComponent } from './ui/page-upcoming-list/page-upcoming
 import { CastListComponent } from './components/cast/cast-list/cast-list.component';
 import { PagePeopleDetailsComponent } from './ui/page-people-details/page-people-details.component';
 import { SomeDetailsComponent } from './components/movie/some-details/some-details.component';
+import { ReviewsMovieComponent } from './components/movie/reviews-movie/reviews-movie.component';
 import { MovieItemDetailsActorComponent } from './components/movie/movie-item-details-actor/movie-item-details-actor.component';
 
 @NgModule({
@@ -47,6 +48,7 @@ import { MovieItemDetailsActorComponent } from './components/movie/movie-item-de
     CastListComponent,
     PagePeopleDetailsComponent,
     SomeDetailsComponent,
+    ReviewsMovieComponent,
     MovieItemDetailsActorComponent
   ],
   imports: [

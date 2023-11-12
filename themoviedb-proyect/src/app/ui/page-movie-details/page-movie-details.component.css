@@ -37,3 +37,34 @@ ul::-webkit-scrollbar-thumb {
 ul::-webkit-scrollbar-thumb:hover {
     background: #90152F;
 }
+
+.director {
+    position: relative;
+    min-width: 220px;
+}
+
+img{
+    border-radius: 5.5%;
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* min-height: 120px;
+    max-height: 120px; */
+    color: aliceblue;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.804) 80%, rgba(128, 128, 128, 0));
+    border-radius: 8%;
+
+}
+
+.title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+
+h5{
+    color: white;
+}

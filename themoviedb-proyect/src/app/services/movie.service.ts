@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { MovieDetailsResponse } from '../models/movie-details.interface';
 import { MovieVideoResponse } from '../models/movie-trailer.interface';
 import { Cast, CreditsResponse } from '../models/credits.interface';
+import { ReviewsResponse } from '../models/reviews.interface';
 
 const API_BASE_URL = '/movie';
 
@@ -35,5 +36,9 @@ export class MovieService {
 
   getCast(id:number): Observable<CreditsResponse> {
     return this.http.get<CreditsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/credits?api_key=${environment.apiKeyFran}`)
+  }
+
+  getReviews(id:number): Observable<ReviewsResponse> {
+    return this.http.get<ReviewsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/reviews?api_key=${environment.apiKeyFran}`)
   }
 }
