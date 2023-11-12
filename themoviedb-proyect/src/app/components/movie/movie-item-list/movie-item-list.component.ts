@@ -19,9 +19,9 @@ export class MovieItemListComponent {
     return `https://www.themoviedb.org/t/p/w220_and_h330_face${this.movie.poster_path}`
   }
 
-movieDetails(id: number) {
+  movieDetails(id: number) {
     console.log(this.movie.id);
     this.router.navigate([`/page-movie/${id}`]);
-}
+  }
 
 }

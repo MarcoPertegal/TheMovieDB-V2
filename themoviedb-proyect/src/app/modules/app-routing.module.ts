@@ -7,6 +7,7 @@ import { PagePeopleListComponent } from '../ui/page-people-list/page-people-list
 import { PageMovieDetailsComponent } from '../ui/page-movie-details/page-movie-details.component';
 import { PageSerieListComponent } from '../ui/page-serie-list/page-serie-list.component';
 import { PageUpcomingListComponent } from '../ui/page-upcoming-list/page-upcoming-list.component';
+import { PagePeopleDetailsComponent } from '../ui/page-people-details/page-people-details.component';
 
 const routes: Routes = [
   { path: 'page-home', component: PageHomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'page-serie-list', component: PageSerieListComponent },
   { path: 'page-upcoming-list', component: PageUpcomingListComponent },
   { path: 'page-movie/:id', component: PageMovieDetailsComponent },
+  { path: 'page-actor/:id', component: PagePeopleDetailsComponent },
   { path: '', pathMatch: 'full', redirectTo: '/page-home' },
   { path: '**', component: PageNotFoundComponent }
 ];
