@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cast } from 'src/app/models/credits.interface';
 
 
@@ -10,8 +11,15 @@ import { Cast } from 'src/app/models/credits.interface';
 export class CastListComponent {
 
   @Input() cast!: Cast;
+  id!: number
+
+  constructor(private router: Router) { }
 
   getImage() {
     return `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${this.cast.profile_path}`
+  }
+  actorDetails(id: number) {
+    console.log(this.cast.id);
+    this.router.navigate([`/page-actor-details/${id}`]);
   }
 }

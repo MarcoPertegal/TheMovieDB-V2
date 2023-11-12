@@ -20,6 +20,6 @@ export class MovieItemDetailsActorComponent {
 
   movieDetails(id: number) {
     console.log(this.movie.id);
-    this.router.navigate([`/page-movie/${id}`]);
+    this.router.navigate([`/page-movie-details/${id}`]);
   }
 }

@@ -19,6 +19,6 @@ export class SerieItemListComponent {
 
   SerieDetails(id: number) {
     console.log(this.serie.id);
-    this.router.navigate([`/page-serie/${id}`]);
+    this.router.navigate([`/page-serie-details/${id}`]);
   }
 }
