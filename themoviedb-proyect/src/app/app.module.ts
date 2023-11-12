@@ -22,6 +22,7 @@ import { PageSerieListComponent } from './ui/page-serie-list/page-serie-list.com
 import { UpcomingItemListComponent } from './components/upcoming/upcoming-item-list/upcoming-item-list.component';
 import { PageUpcomingListComponent } from './ui/page-upcoming-list/page-upcoming-list.component';
 import { CastListComponent } from './components/cast/cast-list/cast-list.component';
+import { PagePeopleDetailsComponent } from './ui/page-people-details/page-people-details.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { CastListComponent } from './components/cast/cast-list/cast-list.compone
     PageSerieListComponent,
     UpcomingItemListComponent,
     PageUpcomingListComponent,
-    CastListComponent
+    CastListComponent,
+    PagePeopleDetailsComponent
   ],
   imports: [
     BrowserModule,

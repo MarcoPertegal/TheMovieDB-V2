@@ -1,0 +1,37 @@
+img {
+    width: 350px;
+}
+
+h1,
+h4,
+p {
+    color: white;
+}
+
+h1 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+h4 {
+    margin-bottom: 25px;
+}
+
+.col-4>p:nth-child(2n) {
+    margin-bottom: 7px;
+}
+
+.col-4>p:nth-child(odd) {
+    margin-bottom: 25px;
+    color: rgb(172, 172, 172);
+}
+
+.biography {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 9;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    color: rgb(172, 172, 172);
+}
