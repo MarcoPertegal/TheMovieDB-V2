@@ -27,6 +27,8 @@ import { SomeDetailsComponent } from './components/movie/some-details/some-detai
 import { ReviewsMovieComponent } from './components/movie/reviews-movie/reviews-movie.component';
 import { MovieItemDetailsActorComponent } from './components/movie/movie-item-details-actor/movie-item-details-actor.component';
 import { PageUpcomingDetailsComponent } from './ui/page-upcoming-details/page-upcoming-details.component';
+import { PageSerieDetailsComponent } from './ui/page-serie-details/page-serie-details.component';
+import { CarteleraSerieComponent } from './components/serie/cartelera-serie/cartelera-serie.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { PageUpcomingDetailsComponent } from './ui/page-upcoming-details/page-up
     SomeDetailsComponent,
     ReviewsMovieComponent,
     MovieItemDetailsActorComponent,
-    PageUpcomingDetailsComponent
+    PageUpcomingDetailsComponent,
+    PageSerieDetailsComponent,
+    CarteleraSerieComponent
   ],
   imports: [
     BrowserModule,
