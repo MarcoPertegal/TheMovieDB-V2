@@ -5,7 +5,7 @@ import { MovieListResponse } from '../models/movie-list.interface';
 import { environment } from 'src/environments/environment';
 import { MovieDetailsResponse } from '../models/movie-details.interface';
 import { MovieVideoResponse } from '../models/movie-trailer.interface';
-import { CreditsResponse } from '../models/credits.interface';
+import { Cast, CreditsResponse } from '../models/credits.interface';
 
 const API_BASE_URL = '/movie';
 
