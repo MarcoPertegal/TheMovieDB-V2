@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MovieCast } from 'src/app/models/people-details-movies.interface';
 import { PeopleDetailsResponse } from 'src/app/models/people-details.interface';
 import { PeopleService } from 'src/app/services/people.service';
 
@@ -11,6 +12,7 @@ import { PeopleService } from 'src/app/services/people.service';
 export class PagePeopleDetailsComponent implements OnInit {
   peopleId!: number;
   peopleDetails!: PeopleDetailsResponse;
+  movieList: MovieCast[] = [];
 
 
   constructor(private route: ActivatedRoute, private peopleService: PeopleService) { }
@@ -26,6 +28,9 @@ export class PagePeopleDetailsComponent implements OnInit {
         });
       }
     });
+    this.peopleService.getPeopleMovies(this.peopleId).subscribe(resp => {
+      this.movieList = resp.cast;
+    })
   }
 
   getImage() {

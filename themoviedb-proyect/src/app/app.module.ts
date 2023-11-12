@@ -25,6 +25,7 @@ import { CastListComponent } from './components/cast/cast-list/cast-list.compone
 import { PagePeopleDetailsComponent } from './ui/page-people-details/page-people-details.component';
 import { SomeDetailsComponent } from './components/movie/some-details/some-details.component';
 import { ReviewsMovieComponent } from './components/movie/reviews-movie/reviews-movie.component';
+import { MovieItemDetailsActorComponent } from './components/movie/movie-item-details-actor/movie-item-details-actor.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { ReviewsMovieComponent } from './components/movie/reviews-movie/reviews-
     CastListComponent,
     PagePeopleDetailsComponent,
     SomeDetailsComponent,
-    ReviewsMovieComponent
+    ReviewsMovieComponent,
+    MovieItemDetailsActorComponent
   ],
   imports: [
     BrowserModule,
