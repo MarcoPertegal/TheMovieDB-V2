@@ -5,6 +5,7 @@ import { MovieListResponse } from '../models/movie-list.interface';
 import { environment } from 'src/environments/environment';
 import { MovieDetailsResponse } from '../models/movie-details.interface';
 import { MovieVideoResponse } from '../models/movie-trailer.interface';
+import { CreditsResponse } from '../models/credits.interface';
 
 const API_BASE_URL = '/movie';
 
@@ -30,5 +31,9 @@ export class MovieService {
 
   getVideoById(id: number): Observable<MovieVideoResponse> {
     return this.http.get<MovieVideoResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/videos?language=en-US&api_key=${environment.apiKeyFran}`);
+  }
+
+  getCast(id:number): Observable<CreditsResponse> {
+    return this.http.get<CreditsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/credits?api_key=${environment.apiKeyFran}`)
   }
 }

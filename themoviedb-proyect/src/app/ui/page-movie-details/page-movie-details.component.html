@@ -1,3 +1,10 @@
 <div class="fondoImg">
     <app-cartelera></app-cartelera>
 </div>
+
+<div class="container pt-4">
+    <h4>Cast</h4>
+    <ul class="list-group list-group-horizontal position-relative overflow-auto">
+        <app-cast-list class="list-group-item mx-5" *ngFor="let c of castList" [cast]="c"></app-cast-list>
+    </ul>
+</div>
