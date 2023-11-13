@@ -29,6 +29,7 @@ import { MovieItemDetailsActorComponent } from './components/movie/movie-item-de
 import { PageSerieDetailsComponent } from './ui/page-serie-details/page-serie-details.component';
 import { CarteleraSerieComponent } from './components/serie/cartelera-serie/cartelera-serie.component';
 import { SomeDetailsSerieComponent } from './components/serie/some-details-serie/some-details-serie.component';
+import { TemporadaComponent } from './components/serie/temporada/temporada.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SomeDetailsSerieComponent } from './components/serie/some-details-serie
     MovieItemDetailsActorComponent,
     PageSerieDetailsComponent,
     CarteleraSerieComponent,
-    SomeDetailsSerieComponent
+    SomeDetailsSerieComponent,
+    TemporadaComponent
 
   ],
   imports: [
