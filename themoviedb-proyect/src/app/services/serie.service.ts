@@ -5,6 +5,7 @@ import { SerieListResponse } from '../models/serie-list.interface';
 import { environment } from 'src/environments/environment';
 import { SerieDetailsResponse } from '../models/serie-details.interface';
 import { SerieVideosResponse } from '../models/serie-videos.interface';
+import { CreditsResponse } from '../models/credits.interface';
 
 const API_BASE_URL = '/tv';
 
@@ -22,11 +23,15 @@ export class SerieService {
     return this.http.get<SerieListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyMarco}&page=${page}`);
   }
 
-  getSerieId(id:number): Observable<SerieDetailsResponse> {
+  getSerieId(id: number): Observable<SerieDetailsResponse> {
     return this.http.get<SerieDetailsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}?api_key=${environment.apiKeyFran}`)
   }
 
-  getVideoById(id:number): Observable<SerieVideosResponse> {
+  getVideoById(id: number): Observable<SerieVideosResponse> {
     return this.http.get<SerieVideosResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/videos?api_key=${environment.apiKeyFran}`)
+  }
+
+  getCast(id: number): Observable<CreditsResponse> {
+    return this.http.get<CreditsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/credits?api_key=${environment.apiKeyFran}`)
   }
 }
