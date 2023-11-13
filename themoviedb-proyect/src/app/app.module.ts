@@ -28,6 +28,7 @@ import { ReviewsMovieComponent } from './components/movie/reviews-movie/reviews-
 import { MovieItemDetailsActorComponent } from './components/movie/movie-item-details-actor/movie-item-details-actor.component';
 import { PageSerieDetailsComponent } from './ui/page-serie-details/page-serie-details.component';
 import { CarteleraSerieComponent } from './components/serie/cartelera-serie/cartelera-serie.component';
+import { SomeDetailsSerieComponent } from './components/serie/some-details-serie/some-details-serie.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { CarteleraSerieComponent } from './components/serie/cartelera-serie/cart
     ReviewsMovieComponent,
     MovieItemDetailsActorComponent,
     PageSerieDetailsComponent,
-    CarteleraSerieComponent
+    CarteleraSerieComponent,
+    SomeDetailsSerieComponent
 
   ],
   imports: [

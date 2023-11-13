@@ -19,7 +19,6 @@ export class CastListComponent {
     return `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${this.cast.profile_path}`
   }
   actorDetails(id: number) {
-    console.log(this.cast.id);
     this.router.navigate([`/page-actor-details/${id}`]);
   }
 }
