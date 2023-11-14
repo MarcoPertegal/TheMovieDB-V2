@@ -7,6 +7,7 @@ import { SerieDetailsResponse } from '../models/serie-details.interface';
 import { SerieVideosResponse } from '../models/serie-videos.interface';
 import { CreditsResponse } from '../models/credits.interface';
 import { SeasonDetailsResponse } from '../models/serie-season.interface';
+import { ReviewsResponse } from '../models/reviews.interface';
 
 const API_BASE_URL = '/tv';
 
@@ -38,5 +39,9 @@ export class SerieService {
 
   getSeason(idSerie: number, seasonNumber: number): Observable<SeasonDetailsResponse> {
     return this.http.get<SeasonDetailsResponse>(`${environment.baseUrl}${API_BASE_URL}/${idSerie}/season/${seasonNumber}?api_key=${environment.apiKeyFran}`)
+  }
+
+  getReviews(id: number): Observable<ReviewsResponse> {
+    return this.http.get<ReviewsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/reviews?api_key=${environment.apiKeyFran}`)
   }
 }
