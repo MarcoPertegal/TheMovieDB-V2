@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { AccountService } from 'src/app/services/account.service';
 import { AccountDetailsResponse } from 'src/app/models/account-details.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -10,21 +11,21 @@ import { AccountDetailsResponse } from 'src/app/models/account-details.interface
 })
 export class NavComponent implements OnInit {
   userDetails?: AccountDetailsResponse;
-  success?: boolean;//esto sirbe para el ngIf
+  success!: string | null;
 
-  constructor(private authenticationService: AuthenticationService, private accountService: AccountService) { }
+  constructor(private authenticationService: AuthenticationService, private accountService: AccountService, private router: Router) { }
 
   ngOnInit() {
-    this.authenticationService.getRequestToken().subscribe(resp => {
-      this.success = resp.success;
-    });
+    this.success = localStorage.getItem('SUCCESS')
   }
 
   doLogin() {
     this.authenticationService.getRequestToken().subscribe(resp => {
       localStorage.setItem('REQUEST_TOKEN', resp.request_token);
-
       window.location.href = `https://www.themoviedb.org/authenticate/${localStorage.getItem('REQUEST_TOKEN')}?redirect_to=http://localhost:4200/approved`;
+      //si no lo guardo en el local storage cuando redirija a la home page succes volverá a tomar
+      //el valor false por defecto
+      localStorage.setItem('SUCCESS', resp.success.toString());
     });
 
     this.accountService.getAccountDetails().subscribe(resp => {
@@ -38,5 +39,9 @@ export class NavComponent implements OnInit {
   }
   getAvatar() {
     return localStorage.getItem('AVATAR');
+  }
+
+  isActive(route: string): boolean {
+    return this.router.isActive(route, true);
   }
 }
