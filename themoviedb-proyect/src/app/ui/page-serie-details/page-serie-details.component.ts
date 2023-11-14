@@ -1,7 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cast } from 'src/app/models/credits.interface';
-import { MovieService } from 'src/app/services/movie.service';
 import { SerieService } from 'src/app/services/serie.service';
 
 @Component({
