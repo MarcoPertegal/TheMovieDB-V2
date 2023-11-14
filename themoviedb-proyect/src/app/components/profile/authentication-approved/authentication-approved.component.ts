@@ -18,6 +18,7 @@ export class AuthenticationApprovedComponent {
     // STEP 4: Guardamos el Session ID y solicitamos la información del usuario
     this.authenticationService.createSession(token!).subscribe(resp => {
       localStorage.setItem('SESSION_ID', resp.session_id);
+      localStorage.setItem('SUCCESS', resp.success.toString());
       this.router.navigate([`/page-home`]);
     });
   }
