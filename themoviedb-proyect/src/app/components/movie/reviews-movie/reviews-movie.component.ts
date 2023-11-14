@@ -9,23 +9,16 @@ import { MovieService } from 'src/app/services/movie.service';
   templateUrl: './reviews-movie.component.html',
   styleUrls: ['./reviews-movie.component.css']
 })
-export class ReviewsMovieComponent implements OnInit {
+export class ReviewsMovieComponent {
 
   @Input() review!: Reviews;
   mostrar: boolean = true
-  director: Cast | undefined;
   id!: number;
   route: ActivatedRoute = inject(ActivatedRoute);
 
 
   constructor(private service: MovieService) {
     this.id = this.route.snapshot.params['id'];
-  }
-
-  ngOnInit(): void {
-    this.service.getCast(this.id).subscribe(creditsResp => {
-      this.director = creditsResp.crew.find((member: Cast) => member.job === 'Director');
-    });
   }
 
   getImage() {

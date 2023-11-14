@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cast } from 'src/app/models/credits.interface';
+import { Reviews } from 'src/app/models/reviews.interface';
 import { SerieService } from 'src/app/services/serie.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class PageSerieDetailsComponent implements OnInit {
   id!: number;
   route: ActivatedRoute = inject(ActivatedRoute);
   director: Cast | undefined;
+  reviewList: Reviews[] = [];
 
   constructor(private service: SerieService) {
     this.id = this.route.snapshot.params['id'];
@@ -26,6 +28,10 @@ export class PageSerieDetailsComponent implements OnInit {
 
     this.service.getCast(this.id).subscribe(creditsResp => {
       this.director = creditsResp.crew.find((member: Cast) => member.job === 'Executive Producer');
+    });
+
+    this.service.getReviews(this.id).subscribe(resp => {
+      this.reviewList = resp.results;
     });
   }
 

@@ -14,10 +14,10 @@
     </div>
 </div>
 
-<div class="container pt-5">
+<div class="container pt-3">
     <h4>Current Season</h4>
 </div>
-<div class="container d-flex justify-content-between">
+<div class="container d-flex justify-content-between pt-2">
 
     <app-temporada></app-temporada>
 
@@ -37,4 +37,10 @@
             </div>
         </div>
     </div>
+</div>
+<div class="container pt-3">
+    <h4>Reviews</h4>
+    <ul class="list-group list-group-horizontal position-relative overflow-auto">
+        <app-reviews-serie class="list-group-item mx-5" *ngFor="let r of reviewList" [review]="r"></app-reviews-serie>
+    </ul>
 </div>
