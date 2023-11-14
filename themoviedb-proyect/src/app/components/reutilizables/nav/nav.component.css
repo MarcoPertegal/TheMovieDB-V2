@@ -53,6 +53,15 @@ a:hover {
     margin-left: 10%;
 }
 
+#login {
+    height: 40px;
+}
+
+#login:hover {
+    background-color: rgb(179, 179, 179);
+
+}
+
 .nav-item.active a.nav-link {
     color: #d64361 !important;
 }

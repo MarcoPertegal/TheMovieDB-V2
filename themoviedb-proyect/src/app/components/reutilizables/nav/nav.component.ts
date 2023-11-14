@@ -10,13 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  userDetails?: AccountDetailsResponse;
   success!: string | null;
 
   constructor(private authenticationService: AuthenticationService, private accountService: AccountService, private router: Router) { }
-
   ngOnInit() {
-    this.success = localStorage.getItem('SUCCESS')
+    this.success = localStorage.getItem('SUCCESS');
+    console.log(localStorage.getItem('USERNAME'));
   }
 
   doLogin() {
