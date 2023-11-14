@@ -10,24 +10,24 @@ import { MovieService } from 'src/app/services/movie.service';
   templateUrl: './page-movie-details.component.html',
   styleUrls: ['./page-movie-details.component.css']
 })
-export class PageMovieDetailsComponent implements OnInit{
-  castList: Cast [] = [];
+export class PageMovieDetailsComponent implements OnInit {
+  castList: Cast[] = [];
   id!: number;
   route: ActivatedRoute = inject(ActivatedRoute);
-  reviewList: Reviews [] = [];
+  reviewList: Reviews[] = [];
 
   director: Cast | undefined;
 
-  constructor(private service: MovieService){ 
+  constructor(private service: MovieService) {
     this.id = this.route.snapshot.params['id'];
   }
 
   ngOnInit(): void {
-    this.service.getCast(this.id).subscribe(resp =>{
+    this.service.getCast(this.id).subscribe(resp => {
       this.castList = resp.cast;
     });
 
-    this.service.getReviews(this.id).subscribe(resp =>{
+    this.service.getReviews(this.id).subscribe(resp => {
       this.reviewList = resp.results;
     });
 
@@ -36,7 +36,7 @@ export class PageMovieDetailsComponent implements OnInit{
     });
   }
 
-  getImgDirector(){
+  getImgDirector() {
     return `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${this.director?.profile_path}`
   }
 }

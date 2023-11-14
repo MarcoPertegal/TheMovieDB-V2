@@ -51,8 +51,6 @@ img {
     position: absolute;
     bottom: 0;
     width: 100%;
-    /* min-height: 120px;
-    max-height: 120px; */
     color: aliceblue;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.804) 80%, rgba(128, 128, 128, 0));
     border-radius: 8%;
