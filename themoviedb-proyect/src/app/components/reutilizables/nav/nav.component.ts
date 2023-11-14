@@ -13,7 +13,6 @@ export class NavComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService, private accountService: AccountService, private router: Router) { }
   ngOnInit() {
-
     console.log(localStorage.getItem('SUCCESS'));
   }
 
