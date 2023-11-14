@@ -22,6 +22,9 @@
             <button class="navbar-text col-md-1 rounded-5" (click)="doLogin()">
                 Login
             </button>
+            <p class="text-light">{{success}}</p>
+            <p class="text-light">{{getUsername()}}</p>
+            <img [src]="getAvatar()" alt="" width="270px">
         </div>
     </div>
 </nav>

@@ -19,9 +19,8 @@ export class AuthenticationService {
       }
     });
   }
-  //Alomejor necesita el apikey
   createSession(token: string): Observable<CreateSesionResponse> {
-    return this.http.post<CreateSesionResponse>(`${environment.baseUrl}/authentication/session/new`,
+    return this.http.post<CreateSesionResponse>(`${environment.baseUrl}/authentication/session/new?api_key=${environment.apiKeyMarco}`,
       {
         request_token: token
       },
