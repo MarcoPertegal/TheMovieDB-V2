@@ -3,7 +3,8 @@
 }
 
 .degradado {
-    width: 400px;
+    padding-left: 5%;
+    padding-right: 5%;
     height: 800px;
     background: linear-gradient(to bottom left, #D62247, #087E8B);
 }
