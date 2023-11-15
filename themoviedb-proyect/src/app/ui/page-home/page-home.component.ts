@@ -24,10 +24,10 @@ export class PageHomeComponent implements OnInit {
   ngOnInit(): void {
     this.movieService.getPopularList().subscribe(resp => {
       this.movieList = resp.results;
-    })
+    });
 
     this.serieService.getPopularList().subscribe(resp => {
       this.serieList = resp.results;
-    })
+    });
   }
 }

@@ -41,4 +41,8 @@ export class MovieService {
   getReviews(id:number): Observable<ReviewsResponse> {
     return this.http.get<ReviewsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/reviews?api_key=${environment.apiKeyFran}`)
   }
+
+  banner(): Observable<any> {
+    return this.http.get(`${environment.baseUrl}/trending/all/week?api_key=${environment.apiKeyFran}`)
+  }
 }

@@ -7,14 +7,24 @@ import { MovieService } from 'src/app/services/movie.service';
   templateUrl: './full-with-carrusell.component.html',
   styleUrls: ['./full-with-carrusell.component.css']
 })
-export class FullWithCarrusellComponent {
-
-  @Input() movie!: Movie;
-
-  images = '';
-
-  getbackdropImage() {
-    this.images = `https://image.tmdb.org/t/p/original/${this.movie.poster_path}`;
+export class FullWithCarrusellComponent implements OnInit {
+  prueba() {
+    console.log('funciona')
   }
 
+  movie!: Movie;
+  movieList: Movie[] = [];
+  movies: Movie[] = [];
+
+  constructor(private service: MovieService) { }
+
+  bannerResult: any = [];
+
+  ngOnInit(): void {
+    this.service.getPopularList().subscribe(resp => {
+      this.movieList = resp.results;
+      this.movies = this.movieList.slice(0, 4);
+      console.log(this.movies)
+    });
+  }
 }
