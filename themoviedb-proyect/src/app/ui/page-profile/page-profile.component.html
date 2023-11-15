@@ -1,3 +1,9 @@
+<div class="d-flex">
+    <div class="degradado text-center">
+        <img [src]="getAvatar()" alt="Avatar del usuario" class="mb-4">
+        <h2 class="text-light">{{getUsername()}}</h2>
+        <img src="./assets/img/logoTMDB.png" alt="Logotipo de la web" class="w-75">
+    </div>
 <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs mt-5">
     <li [ngbNavItem]="1">
         <button ngbNavLink>Favorite</button>
@@ -74,3 +80,4 @@
 </ul>
 
 <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div>

@@ -1,6 +1,26 @@
+
+img {
+    margin-top: 40px;
+    width: 200px;
+}
+
+.degradado {
+    width: 400px;
+    height: 800px;
+    background: linear-gradient(to bottom left, #D62247, #087E8B);
+}
+
+.d-flex {
+    margin-top: 50px;
+}
+
+div div :first-child {
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+}
 * {
     --bs-nav-tabs-link-active-color: #d64361;
     --bs-nav-link-color: rgb(177, 177, 177);
     --bs-link-hover-color: rgb(215, 215, 215);
 }
-
