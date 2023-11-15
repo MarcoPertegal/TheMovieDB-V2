@@ -32,6 +32,7 @@ import { SomeDetailsSerieComponent } from './components/serie/some-details-serie
 import { AuthenticationApprovedComponent } from './components/profile/authentication-approved/authentication-approved.component';
 import { TemporadaComponent } from './components/serie/temporada/temporada.component';
 import { ReviewsSerieComponent } from './components/serie/reviews-serie/reviews-serie.component';
+import { PageProfileComponent } from './ui/page-profile/page-profile.component';
 
 @NgModule({
   declarations: [
@@ -59,9 +60,10 @@ import { ReviewsSerieComponent } from './components/serie/reviews-serie/reviews-
     PageSerieDetailsComponent,
     CarteleraSerieComponent,
     SomeDetailsSerieComponent,
-    AuthenticationApprovedComponent
+    AuthenticationApprovedComponent,
     TemporadaComponent,
-    ReviewsSerieComponent
+    ReviewsSerieComponent,
+    PageProfileComponent
 
   ],
   imports: [

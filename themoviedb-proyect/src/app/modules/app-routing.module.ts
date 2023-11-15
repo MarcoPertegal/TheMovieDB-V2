@@ -10,6 +10,7 @@ import { PageUpcomingListComponent } from '../ui/page-upcoming-list/page-upcomin
 import { PagePeopleDetailsComponent } from '../ui/page-people-details/page-people-details.component';
 import { PageSerieDetailsComponent } from '../ui/page-serie-details/page-serie-details.component';
 import { AuthenticationApprovedComponent } from '../components/profile/authentication-approved/authentication-approved.component';
+import { PageProfileComponent } from '../ui/page-profile/page-profile.component';
 
 const routes: Routes = [
   { path: 'page-home', component: PageHomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'page-actor-details/:id', component: PagePeopleDetailsComponent },
   { path: 'page-serie-details/:id', component: PageSerieDetailsComponent },
   { path: 'approved', component: AuthenticationApprovedComponent },
+  { path: 'page-profile', component: PageProfileComponent },
   { path: '', pathMatch: 'full', redirectTo: '/page-home' },
   { path: '**', component: PageNotFoundComponent }
 ];
