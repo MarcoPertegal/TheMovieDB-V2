@@ -1,0 +1,10 @@
+img {
+    margin-top: 40px;
+    width: 300px;
+}
+
+.degradado {
+    width: 550px;
+    height: 800px;
+    background-color: aquamarine;
+}
