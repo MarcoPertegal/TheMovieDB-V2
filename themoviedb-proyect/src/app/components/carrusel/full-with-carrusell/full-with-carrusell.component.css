@@ -1,0 +1,37 @@
+img {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+    /* object-fit: contain; */
+    /* object-fit: fill; */
+}
+
+.contenedor {
+    position: relative;
+    min-width: 270px;
+    overflow-y: hidden;
+}
+
+.text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    min-height: 220px;
+    max-height: 220px;
+    color: aliceblue;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.804) 80%, rgba(128, 128, 128, 0));
+
+}
+
+.boton {
+    margin-top: 10px;
+    background-color: #D62247;
+    color: white;
+    width: 85px;
+    height: 35px;
+    font-size: 10pt;
+}
+
+.boton:hover {
+    background-color: #96152f;
+}
