@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cast } from 'src/app/models/credits.interface';
-import { MovieService } from 'src/app/services/movie.service';
+import { Reviews } from 'src/app/models/reviews.interface';
 import { SerieService } from 'src/app/services/serie.service';
 
 @Component({
@@ -14,6 +14,8 @@ export class PageSerieDetailsComponent implements OnInit {
   castList: Cast[] = [];
   id!: number;
   route: ActivatedRoute = inject(ActivatedRoute);
+  director: Cast | undefined;
+  reviewList: Reviews[] = [];
 
   constructor(private service: SerieService) {
     this.id = this.route.snapshot.params['id'];
@@ -23,5 +25,17 @@ export class PageSerieDetailsComponent implements OnInit {
     this.service.getCast(this.id).subscribe(resp => {
       this.castList = resp.cast;
     });
+
+    this.service.getCast(this.id).subscribe(creditsResp => {
+      this.director = creditsResp.crew.find((member: Cast) => member.job === 'Executive Producer');
+    });
+
+    this.service.getReviews(this.id).subscribe(resp => {
+      this.reviewList = resp.results;
+    });
+  }
+
+  getImgDirector() {
+    return `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${this.director?.profile_path}`
   }
 }

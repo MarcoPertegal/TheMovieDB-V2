@@ -30,6 +30,8 @@ import { PageSerieDetailsComponent } from './ui/page-serie-details/page-serie-de
 import { CarteleraSerieComponent } from './components/serie/cartelera-serie/cartelera-serie.component';
 import { SomeDetailsSerieComponent } from './components/serie/some-details-serie/some-details-serie.component';
 import { AuthenticationApprovedComponent } from './components/profile/authentication-approved/authentication-approved.component';
+import { TemporadaComponent } from './components/serie/temporada/temporada.component';
+import { ReviewsSerieComponent } from './components/serie/reviews-serie/reviews-serie.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { AuthenticationApprovedComponent } from './components/profile/authentica
     CarteleraSerieComponent,
     SomeDetailsSerieComponent,
     AuthenticationApprovedComponent
+    TemporadaComponent,
+    ReviewsSerieComponent
 
   ],
   imports: [
