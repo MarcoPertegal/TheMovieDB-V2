@@ -1,7 +1,5 @@
-
-img {
+.degradado img {
     margin-top: 40px;
-    width: 200px;
 }
 
 .degradado {
@@ -14,11 +12,12 @@ img {
     margin-top: 50px;
 }
 
-div div :first-child {
+.degradado .avatar {
     border-radius: 50%;
     width: 220px;
     height: 220px;
 }
+
 * {
     --bs-nav-tabs-link-active-color: #d64361;
     --bs-nav-link-color: rgb(177, 177, 177);
