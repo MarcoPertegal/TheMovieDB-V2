@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-profile.component.css']
 })
 export class PageProfileComponent {
+ active = 1;
+  
   getUsername() {
     return localStorage.getItem('USERNAME');
   }
