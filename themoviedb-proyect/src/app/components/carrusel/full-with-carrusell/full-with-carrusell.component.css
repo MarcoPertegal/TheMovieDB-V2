@@ -22,16 +22,3 @@ img {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.804) 80%, rgba(128, 128, 128, 0));
 
 }
-
-.boton {
-    margin-top: 10px;
-    background-color: #D62247;
-    color: white;
-    width: 85px;
-    height: 35px;
-    font-size: 10pt;
-}
-
-.boton:hover {
-    background-color: #96152f;
-}
