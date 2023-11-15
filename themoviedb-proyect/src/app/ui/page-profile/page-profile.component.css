@@ -1,3 +1,6 @@
 * {
-    --bs-nav-tabs-link-active-color: #ffff;
+    --bs-nav-tabs-link-active-color: #d64361;
+    --bs-nav-link-color: rgb(177, 177, 177);
+    --bs-link-hover-color: rgb(215, 215, 215);
 }
+
