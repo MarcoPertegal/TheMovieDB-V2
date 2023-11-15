@@ -20,23 +20,13 @@
                     </li>
                 </ul>
             </div>
-            <button id="login" *ngIf="success === null || 'false'" class="navbar-text col-md-1 rounded-3 mt-2"
-                (click)="doLogin()">
+            <button id="login" *ngIf="!isLoggedIn" class="navbar-text col-md-1 rounded-3 mt-2" (click)="doLogin()">
                 Login
             </button>
-            <div id="user" *ngIf="success !== null || 'false'" class="navbar-text col-md-2">
+            <div id="user" *ngIf="isLoggedIn" class="navbar-text col-md-2">
                 <p class="text-light">{{getUsername()}}</p>
                 <img [src]="getAvatar()" alt="Avatar del usuario">
             </div>
-
-            <!--  
-            <button id="login" class="navbar-text col-md-1 rounded-3 mt-2" (click)="doLogin()">
-                Login
-            </button>
-            <div id="user" class="navbar-text col-md-2">
-                <p class="text-light">{{getUsername()}}</p>
-                <img [src]="getAvatar()" alt="Avatar del usuario">
-            </div>-->
         </div>
     </div>
 </nav>

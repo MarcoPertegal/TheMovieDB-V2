@@ -9,23 +9,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  success!: string | null;
+  isLoggedIn = false;
 
   constructor(private authenticationService: AuthenticationService, private accountService: AccountService, private router: Router) { }
   ngOnInit() {
-    console.log(localStorage.getItem('SUCCESS'));
+    this.accountService.getAccountDetails().subscribe(resp => {
+      localStorage.setItem('USERNAME', resp.username);
+      localStorage.setItem('AVATAR', `https://image.tmdb.org/t/p/w500${resp.avatar.tmdb.avatar_path}`)
+      this.isLoggedIn = true;
+    });
   }
 
   doLogin() {
     this.authenticationService.getRequestToken().subscribe(resp => {
       localStorage.setItem('REQUEST_TOKEN', resp.request_token);
       window.location.href = `https://www.themoviedb.org/authenticate/${localStorage.getItem('REQUEST_TOKEN')}?redirect_to=http://localhost:4200/approved`;
-    });
-
-    this.accountService.getAccountDetails().subscribe(resp => {
-      localStorage.setItem('USERNAME', resp.username);
-      localStorage.setItem('AVATAR', `https://image.tmdb.org/t/p/w500${resp.avatar.tmdb.avatar_path}`)
-      this.success = localStorage.getItem('SUCCESS');
     });
   }
 
