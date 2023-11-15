@@ -1,27 +1,32 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container-fluid">
         <div class="row full-width">
-            <a class="navbar-brand col-md-4 " routerLink="/page-home"><img src="./assets/img/logotipoNav.PNG" class=""
-                    alt="logotipo web"></a>
+            <a class="navbar-brand col-md-4 " routerLink="/page-home">
+                <img src="./assets/img/logotipoNav.PNG" class="" alt="logotipo web">
+            </a>
             <div class="collapse navbar-collapse col-md-4" id="navbarText">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item" [class.active]="isActive('/page-movie-list')">
                         <a class="nav-link" routerLink="/page-movie-list">Movies</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" [class.active]="isActive('/page-actor-list')">
                         <a class="nav-link" routerLink="/page-actor-list">Actors</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" [class.active]="isActive('/page-serie-list')">
                         <a class="nav-link" routerLink="/page-serie-list">Series</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" [class.active]="isActive('/page-upcoming-list')">
                         <a class="nav-link" routerLink="/page-upcoming-list">Upcoming</a>
                     </li>
                 </ul>
             </div>
-            <a class="navbar-text col-md-1" routerLink="#">
-                Sign in
-            </a>
+            <button id="login" *ngIf="!isLoggedIn" class="navbar-text col-md-1 rounded-3 mt-2" (click)="doLogin()">
+                Login
+            </button>
+            <div id="user" *ngIf="isLoggedIn" class="navbar-text col-md-2">
+                <p class="text-light">{{getUsername()}}</p>
+                <img [src]="getAvatar()" alt="Avatar del usuario">
+            </div>
         </div>
     </div>
 </nav>
