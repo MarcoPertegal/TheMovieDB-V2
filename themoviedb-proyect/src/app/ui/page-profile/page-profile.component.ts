@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./page-profile.component.css']
 })
 export class PageProfileComponent {
-
+  getUsername() {
+    return localStorage.getItem('USERNAME');
+  }
+  getAvatar() {
+    return localStorage.getItem('AVATAR');
+  }
 }

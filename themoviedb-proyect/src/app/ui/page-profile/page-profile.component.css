@@ -1,10 +1,20 @@
 img {
     margin-top: 40px;
-    width: 300px;
+    width: 200px;
 }
 
 .degradado {
-    width: 550px;
+    width: 400px;
     height: 800px;
-    background-color: aquamarine;
+    background: linear-gradient(to bottom left, #D62247, #087E8B);
+}
+
+.d-flex {
+    margin-top: 50px;
+}
+
+div div :first-child {
+    border-radius: 50%;
+    width: 220px;
+    height: 220px;
 }
