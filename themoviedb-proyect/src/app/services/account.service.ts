@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { AccountDetailsResponse } from '../models/account-details.interface';
 import { Observable } from 'rxjs';
+import { MovieListResponse } from '../models/movie-list.interface';
 
 
 @Injectable({
@@ -20,5 +21,11 @@ export class AccountService {
           'Authorization': `Bearer ${environment.tmdbTokenMarco}`
         }
       });
+  }
+
+  getWatchListMovies(): Observable<MovieListResponse> {
+    let accountId = localStorage.getItem('ACCOUNT_ID');
+    let sessionId = localStorage.getItem('SESSION_ID');
+    return this.http.get<MovieListResponse>(`${environment.baseUrl}/account/${accountId}/watchlist/movies?api_key=${environment.apiKeyMarco}&session_id=${sessionId}`)
   }
 }
