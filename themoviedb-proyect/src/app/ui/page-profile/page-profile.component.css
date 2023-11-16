@@ -5,8 +5,12 @@
 .degradado {
     height: 1130px;
     background: linear-gradient(to bottom left, #D62247, #087E8B);
-    min-width: 400px;
-    max-width: 400px;
+    min-width: 25%;
+    max-width: 25%;
+}
+
+.item {
+    padding-left: 6%;
 }
 
 .caja {
