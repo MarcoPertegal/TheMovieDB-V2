@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { MovieListResponse } from '../models/movie-list.interface';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,18 +31,20 @@ export class AccountService {
     let sessionId = localStorage.getItem('SESSION_ID');
     return this.http.get<MovieListResponse>(`${environment.baseUrl}/account/${accountId}/watchlist/movies?api_key=${environment.apiKeyMarco}&session_id=${sessionId}`)
   }
-}
-
   getFavorites(page: number): Observable<MovieListResponse> {
     let sessionId = localStorage.getItem('SESSION_ID');
     let accountId = localStorage.getItem('ACCOUNT_ID');
-    return this.http.get<MovieListResponse>(`${environment.baseUrl}/account/${accountId}/favorite/movies?session_id=${sessionId}&page=${page}`,
+
+    return this.http.get<MovieListResponse>(
+      `${environment.baseUrl}/account/${accountId}/favorite/movies?session_id=${sessionId}&page=${page}`,
       {
         headers: {
-          accept: 'application/json',
+          'accept': 'application/json',
           'Authorization': `Bearer ${environment.tmdbTokenMarco}`
         }
       });
   }
 }
+
+
 

@@ -9,7 +9,8 @@ import { AccountService } from 'src/app/services/account.service';
 })
 export class PageProfileComponent implements OnInit {
   active = 1;
-  movieList: Movie[] = [];
+  movieListFavorite: Movie[] = [];
+  movieListWatchList: Movie[] = [];
   pageNumber: number = 1;
   count: number = 0;
   currentPage: number = 1;
@@ -21,11 +22,11 @@ export class PageProfileComponent implements OnInit {
   }
   loadNewPage() {
     this.accountService.getFavorites(this.pageNumber).subscribe(resp => {
-      this.movieList = resp.results;
+      this.movieListFavorite = resp.results;
       this.count = resp.total_results;
     });
     this.accountService.getWatchListMovies().subscribe(resp => {
-      this.movieList = resp.results
+      this.movieListWatchList = resp.results
     });
   }
   getUsername() {
