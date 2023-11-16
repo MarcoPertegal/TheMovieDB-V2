@@ -24,8 +24,15 @@ export class AccountService {
       });
   }
 
+
+  getWatchListMovies(): Observable<MovieListResponse> {
+    let accountId = localStorage.getItem('ACCOUNT_ID');
+    let sessionId = localStorage.getItem('SESSION_ID');
+    return this.http.get<MovieListResponse>(`${environment.baseUrl}/account/${accountId}/watchlist/movies?api_key=${environment.apiKeyMarco}&session_id=${sessionId}`)
+  }
+}
+
   getFavorites(page: number): Observable<MovieListResponse> {
-    //api_key=18c6dd9c77bfcc97e862001655abfba9& alomejor no hace falta
     let sessionId = localStorage.getItem('SESSION_ID');
     let accountId = localStorage.getItem('ACCOUNT_ID');
     return this.http.get<MovieListResponse>(`${environment.baseUrl}/account/${accountId}/favorite/movies?session_id=${sessionId}&page=${page}`,
@@ -37,3 +44,4 @@ export class AccountService {
       });
   }
 }
+

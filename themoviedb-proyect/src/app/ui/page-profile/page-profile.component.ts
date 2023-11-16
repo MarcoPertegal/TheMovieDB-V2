@@ -23,9 +23,11 @@ export class PageProfileComponent implements OnInit {
     this.accountService.getFavorites(this.pageNumber).subscribe(resp => {
       this.movieList = resp.results;
       this.count = resp.total_results;
-    })
+    });
+    this.accountService.getWatchListMovies().subscribe(resp => {
+      this.movieList = resp.results
+    });
   }
-
   getUsername() {
     return localStorage.getItem('USERNAME');
   }

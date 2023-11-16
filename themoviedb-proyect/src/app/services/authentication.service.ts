@@ -13,14 +13,14 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   getRequestToken(): Observable<GetRequestTokenResponse> {
-    return this.http.get<GetRequestTokenResponse>(`${environment.baseUrl}/authentication/token/new?api_key=${environment.apiKeyMarco}`, {
+    return this.http.get<GetRequestTokenResponse>(`${environment.baseUrl}/authentication/token/new`, {
       headers: {
         'Authorization': `Bearer ${environment.tmdbTokenMarco}`
       }
     });
   }
   createSession(token: string): Observable<CreateSesionResponse> {
-    return this.http.post<CreateSesionResponse>(`${environment.baseUrl}/authentication/session/new?api_key=${environment.apiKeyMarco}`,
+    return this.http.post<CreateSesionResponse>(`${environment.baseUrl}/authentication/session/new`,
       {
         request_token: token
       },

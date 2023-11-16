@@ -15,9 +15,11 @@ export class NavComponent implements OnInit {
   ngOnInit() {
     this.accountService.getAccountDetails().subscribe(resp => {
       localStorage.setItem('USERNAME', resp.username);
+      localStorage.setItem('ACCOUNT_ID', resp.id.toString());
       localStorage.setItem('AVATAR', `https://image.tmdb.org/t/p/w500${resp.avatar.tmdb.avatar_path}`)
       this.isLoggedIn = true;
     });
+   
   }
 
   doLogin() {

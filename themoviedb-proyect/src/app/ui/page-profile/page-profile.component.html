@@ -26,25 +26,18 @@
             <li [ngbNavItem]="2">
                 <button ngbNavLink>Watch List</button>
                 <ng-template ngbNavContent>
-                    <p>
-                        Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan
-                        four loko
-                        farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk
-                        aliquip
-                        jean
-                        shorts
-                        ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus
-                        mollit.
-                        Keytar
-                        helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio
-                        cillum
-                        wes
-                        anderson
-                        8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art
-                        party
-                        scenester
-                        stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.
-                    </p>
+                    <div class="lists">
+                        <div class="container">
+                            <div class="row">
+                                <app-movie-item-list class="col-3 ps-5 pt-5" *ngFor="let m of movieList"
+                                    [movie]="m"></app-movie-item-list>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center pt-3">
+                        <ngb-pagination [collectionSize]="count" [maxSize]="3" [rotate]="true" [(page)]="pageNumber"
+                            (pageChange)="loadNewPage()" aria-label="Default pagination"></ngb-pagination>
+                    </div>
                 </ng-template>
             </li>
             <li [ngbNavItem]="3">
