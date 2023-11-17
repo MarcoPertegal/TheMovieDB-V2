@@ -33,4 +33,9 @@ export class PageProfileComponent implements OnInit {
   getAvatar() {
     return localStorage.getItem('AVATAR');
   }
+
+  addWatchListMovies() {
+    this.accountService.addWatchListsMovies().subscribe(resp => {
+    });
+  }
 }

@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.development';
 import { AccountDetailsResponse } from '../models/account-details.interface';
 import { Observable } from 'rxjs';
 import { MovieListResponse } from '../models/movie-list.interface';
+import { AddItemResponse } from '../models/add-item.interface';
 
 
 
@@ -43,6 +44,17 @@ export class AccountService {
           'Authorization': `Bearer ${environment.tmdbTokenMarco}`
         }
       });
+  }
+
+  addWatchListsMovies(): Observable<AddItemResponse> {
+    let accountId = localStorage.getItem('ACCOUNT_ID');
+    return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/watchlist?api_key=${environment.apiKeyFran}`,
+      {
+        "media_type": "movie",
+        "media_id": 11,
+        "watchlist": true
+      }
+    );
   }
 }
 
