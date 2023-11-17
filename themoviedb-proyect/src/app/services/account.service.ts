@@ -45,13 +45,13 @@ export class AccountService {
         }
       });
   }
-  addFovorites(movie: Movie, movieId: number, favorite: true): Observable<AddItemResponse> {
+  addMovieToFovorites(movieId: number): Observable<AddItemResponse> {
     let accountId = localStorage.getItem('ACCOUNT_ID');
     return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/favorite`,
       {
-        media_type: movie,
+        media_type: "movie",
         media_id: movieId,
-        favorite: favorite
+        favorite: true
       },
       {
         headers: {
