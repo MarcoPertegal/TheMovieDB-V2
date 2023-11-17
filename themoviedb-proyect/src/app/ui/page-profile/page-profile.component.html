@@ -17,10 +17,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center pt-3">
-                        <ngb-pagination [collectionSize]="count" [maxSize]="3" [rotate]="true" [(page)]="pageNumber"
-                            (pageChange)="loadNewPage()" aria-label="Default pagination"></ngb-pagination>
-                    </div>
                 </ng-template>
             </li>
             <li [ngbNavItem]="2">
@@ -33,10 +29,6 @@
                                     [movie]="m"></app-movie-item-list>
                             </div>
                         </div>
-                    </div>
-                    <div class="d-flex justify-content-center pt-3">
-                        <ngb-pagination [collectionSize]="count" [maxSize]="3" [rotate]="true" [(page)]="pageNumber"
-                            (pageChange)="loadNewPage()" aria-label="Default pagination"></ngb-pagination>
                     </div>
                 </ng-template>
             </li>

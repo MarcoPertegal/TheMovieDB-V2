@@ -31,12 +31,12 @@ export class AccountService {
     let sessionId = localStorage.getItem('SESSION_ID');
     return this.http.get<MovieListResponse>(`${environment.baseUrl}/account/${accountId}/watchlist/movies?api_key=${environment.apiKeyMarco}&session_id=${sessionId}`)
   }
-  getFavorites(page: number): Observable<MovieListResponse> {
+  getFavorites(): Observable<MovieListResponse> {
     let sessionId = localStorage.getItem('SESSION_ID');
     let accountId = localStorage.getItem('ACCOUNT_ID');
 
     return this.http.get<MovieListResponse>(
-      `${environment.baseUrl}/account/${accountId}/favorite/movies?session_id=${sessionId}&page=${page}`,
+      `${environment.baseUrl}/account/${accountId}/favorite/movies?session_id=${sessionId}`,
       {
         headers: {
           'accept': 'application/json',

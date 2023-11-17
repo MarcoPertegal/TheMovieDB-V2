@@ -11,24 +11,22 @@ export class PageProfileComponent implements OnInit {
   active = 1;
   movieListFavorite: Movie[] = [];
   movieListWatchList: Movie[] = [];
-  pageNumber: number = 1;
-  count: number = 0;
-  currentPage: number = 1;
+  pageNumberFavorite: number = 1;
+  pageNumberWatchList: number = 1;
+  countFavorite: number = 0;
+  countWatchList: number = 0;
 
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
-    this.loadNewPage();
-  }
-  loadNewPage() {
-    this.accountService.getFavorites(this.pageNumber).subscribe(resp => {
+    this.accountService.getFavorites().subscribe(resp => {
       this.movieListFavorite = resp.results;
-      this.count = resp.total_results;
     });
     this.accountService.getWatchListMovies().subscribe(resp => {
       this.movieListWatchList = resp.results
     });
   }
+
   getUsername() {
     return localStorage.getItem('USERNAME');
   }
