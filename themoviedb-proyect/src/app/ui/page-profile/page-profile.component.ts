@@ -23,7 +23,9 @@ export class PageProfileComponent implements OnInit {
       this.movieListFavorite = resp.results;
     });
     this.accountService.getWatchListMovies().subscribe(resp => {
-      this.movieListWatchList = resp.results
+      this.movieListWatchList = resp.results;
+      const watchListsIds = this.movieListWatchList.map(movie => movie.id);
+      localStorage.setItem('WATCHLISTS_IDS', watchListsIds.toString());
     });
   }
 
@@ -32,10 +34,5 @@ export class PageProfileComponent implements OnInit {
   }
   getAvatar() {
     return localStorage.getItem('AVATAR');
-  }
-
-  addWatchListMovies() {
-    this.accountService.addWatchListsMovies().subscribe(resp => {
-    });
   }
 }

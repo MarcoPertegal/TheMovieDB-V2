@@ -3,6 +3,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieDetailsResponse } from 'src/app/models/movie-details.interface';
 import { Video } from 'src/app/models/movie-trailer.interface';
+import { AccountService } from 'src/app/services/account.service';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -16,8 +17,10 @@ export class CarteleraComponent implements OnInit {
   id!: number;
   route: ActivatedRoute = inject(ActivatedRoute);
   currentRate!: number;
+  watchListsIds!: string | null;
+  isWatchLists: boolean = false;
 
-  constructor(private service: MovieService){ 
+  constructor(private service: MovieService, private accountService: AccountService){ 
     this.id = this.route.snapshot.params['id'];
   }
 
@@ -25,6 +28,10 @@ export class CarteleraComponent implements OnInit {
     this.service.getMovieId(this.id).subscribe(resp => {
       this.movieDetails = resp;
     });
+
+    this.watchListsIds = localStorage.getItem('WATCHLISTS_IDS');
+    const arrayWatchLists = this.watchListsIds!.split(', ');
+    this.isWatchListAdd(arrayWatchLists);
   }
 
   getCartelera(){
@@ -41,6 +48,14 @@ export class CarteleraComponent implements OnInit {
       const youtubeUrl = `https://www.youtube.com/watch?v=${trailer[0].key}`;
       window.open(youtubeUrl, '_blank');
     });
+  }
+
+  addWatchListMovies(id: number) {
+    this.accountService.addWatchListsMovies(id).subscribe();
+  }
+
+  isWatchListAdd(arrayWatchLists: string[]){
+    this.isWatchLists = arrayWatchLists.includes(this.movieDetails.id.toString());
   }
 
 }

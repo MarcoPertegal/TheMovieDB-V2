@@ -46,13 +46,19 @@ export class AccountService {
       });
   }
 
-  addWatchListsMovies(): Observable<AddItemResponse> {
+  addWatchListsMovies(id: number): Observable<AddItemResponse> {
     let accountId = localStorage.getItem('ACCOUNT_ID');
-    return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/watchlist?api_key=${environment.apiKeyFran}`,
+    return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/watchlist`,
       {
         "media_type": "movie",
-        "media_id": 11,
+        "media_id": id,
         "watchlist": true
+      },
+      {
+        headers: {
+          'accept': 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
       }
     );
   }

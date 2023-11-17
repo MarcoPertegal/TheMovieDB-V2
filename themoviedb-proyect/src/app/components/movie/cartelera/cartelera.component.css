@@ -63,3 +63,12 @@ h1 {
     -webkit-line-clamp: 9;
     -webkit-box-orient: vertical;
 }
+
+.list:hover{
+    fill: yellow;
+}
+
+.isWatchListsIcon{
+    fill: yellow;
+
+}
