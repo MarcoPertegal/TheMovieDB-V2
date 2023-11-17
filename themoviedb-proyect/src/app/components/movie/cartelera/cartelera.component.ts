@@ -20,31 +20,30 @@ export class CarteleraComponent implements OnInit {
   watchListsIds!: string | null;
   isWatchLists: boolean = false;
 
-  constructor(private service: MovieService, private accountService: AccountService){ 
+  constructor(private service: MovieService, private accountService: AccountService) {
     this.id = this.route.snapshot.params['id'];
   }
 
   ngOnInit(): void {
     this.service.getMovieId(this.id).subscribe(resp => {
       this.movieDetails = resp;
+      this.watchListsIds = localStorage.getItem('WATCHLISTS_IDS');
+      const arrayWatchLists = this.watchListsIds!.split(', ');
+      this.isWatchListAdd(arrayWatchLists);
     });
-
-    this.watchListsIds = localStorage.getItem('WATCHLISTS_IDS');
-    const arrayWatchLists = this.watchListsIds!.split(', ');
-    this.isWatchListAdd(arrayWatchLists);
   }
 
-  getCartelera(){
+  getCartelera() {
     return `https://www.themoviedb.org/t/p/w533_and_h300_bestv2/${this.movieDetails.backdrop_path}`
   }
 
-  rating(){
+  rating() {
     this.currentRate = this.movieDetails.popularity;
   }
 
   trailer() {
     this.service.getVideoById(this.id).subscribe(resp => {
-     const trailer = resp.results.filter((v : Video) => v.type === 'Trailer');
+      const trailer = resp.results.filter((v: Video) => v.type === 'Trailer');
       const youtubeUrl = `https://www.youtube.com/watch?v=${trailer[0].key}`;
       window.open(youtubeUrl, '_blank');
     });
@@ -54,7 +53,7 @@ export class CarteleraComponent implements OnInit {
     this.accountService.addWatchListsMovies(id).subscribe();
   }
 
-  isWatchListAdd(arrayWatchLists: string[]){
+  isWatchListAdd(arrayWatchLists: string[]) {
     this.isWatchLists = arrayWatchLists.includes(this.movieDetails.id.toString());
   }
 
