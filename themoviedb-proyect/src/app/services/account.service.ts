@@ -48,7 +48,8 @@ export class AccountService {
 
   addWatchListsMovies(id: number): Observable<AddItemResponse> {
     let accountId = localStorage.getItem('ACCOUNT_ID');
-    return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/watchlist`,
+    let sessionId = localStorage.getItem('SESSION_ID');
+    return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/watchlist?session_id=${sessionId}`,
       {
         "media_type": "movie",
         "media_id": id,
