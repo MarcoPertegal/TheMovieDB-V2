@@ -21,12 +21,15 @@ export class PageProfileComponent implements OnInit {
   ngOnInit(): void {
     this.accountService.getFavorites().subscribe(resp => {
       this.movieListFavorite = resp.results;
+      const favoriteIds = this.movieListFavorite.map(movie => movie.id);
+      localStorage.setItem('FAVORITE_IDS', favoriteIds.toString());
     });
     this.accountService.getWatchListMovies().subscribe(resp => {
       this.movieListWatchList = resp.results;
       const watchListsIds = this.movieListWatchList.map(movie => movie.id);
       localStorage.setItem('WATCHLISTS_IDS', watchListsIds.toString());
     });
+
   }
 
   getUsername() {
