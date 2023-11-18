@@ -25,7 +25,9 @@ export class PageProfileComponent implements OnInit {
       localStorage.setItem('FAVORITE_IDS', favoriteIds.toString());
     });
     this.accountService.getWatchListMovies().subscribe(resp => {
-      this.movieListWatchList = resp.results
+      this.movieListWatchList = resp.results;
+      const watchListsIds = this.movieListWatchList.map(movie => movie.id);
+      localStorage.setItem('WATCHLISTS_IDS', watchListsIds.toString());
     });
 
   }

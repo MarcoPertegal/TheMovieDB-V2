@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { AccountDetailsResponse } from '../models/account-details.interface';
 import { Observable } from 'rxjs';
-import { Movie, MovieListResponse } from '../models/movie-list.interface';
+import { MovieListResponse } from '../models/movie-list.interface';
 import { AddItemResponse } from '../models/add-item.interface';
 
 
@@ -45,6 +45,23 @@ export class AccountService {
         }
       });
   }
+
+  addWatchListsMovies(id: number): Observable<AddItemResponse> {
+    let accountId = localStorage.getItem('ACCOUNT_ID');
+    let sessionId = localStorage.getItem('SESSION_ID');
+    return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/watchlist?session_id=${sessionId}`,
+      {
+        "media_type": "movie",
+        "media_id": id,
+        "watchlist": true
+      },
+      {
+        headers: {
+          'accept': 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
+      }
+    );
   addMovieToFovorites(movieId: number): Observable<AddItemResponse> {
     let accountId = localStorage.getItem('ACCOUNT_ID');
     return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/favorite`,
