@@ -23,8 +23,8 @@ export class MovieService {
   getPopularListPage(page: number): Observable<MovieListResponse> {
     return this.http.get<MovieListResponse>(`${environment.baseUrl}${API_BASE_URL}/popular?api_key=${environment.apiKeyMarco}&page=${page}`);
   }
-  getUpcomingList(): Observable<MovieListResponse> {
-    return this.http.get<MovieListResponse>(`${environment.baseUrl}${API_BASE_URL}/upcoming?api_key=${environment.apiKeyMarco}`);
+  getUpcomingList(page: number): Observable<MovieListResponse> {
+    return this.http.get<MovieListResponse>(`${environment.baseUrl}${API_BASE_URL}/upcoming?api_key=${environment.apiKeyMarco}&page=${page}`);
   }
   getMovieId(id: number): Observable<MovieDetailsResponse> {
     return this.http.get<MovieDetailsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}?api_key=${environment.apiKeyFran}`)
@@ -34,11 +34,11 @@ export class MovieService {
     return this.http.get<MovieVideoResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/videos?language=en-US&api_key=${environment.apiKeyFran}`);
   }
 
-  getCast(id:number): Observable<CreditsResponse> {
+  getCast(id: number): Observable<CreditsResponse> {
     return this.http.get<CreditsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/credits?api_key=${environment.apiKeyFran}`)
   }
 
-  getReviews(id:number): Observable<ReviewsResponse> {
+  getReviews(id: number): Observable<ReviewsResponse> {
     return this.http.get<ReviewsResponse>(`${environment.baseUrl}${API_BASE_URL}/${id}/reviews?api_key=${environment.apiKeyFran}`)
   }
 

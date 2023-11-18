@@ -62,6 +62,7 @@ export class AccountService {
         }
       }
     );
+  }
   addMovieToFovorites(movieId: number): Observable<AddItemResponse> {
     let accountId = localStorage.getItem('ACCOUNT_ID');
     return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/favorite`,
