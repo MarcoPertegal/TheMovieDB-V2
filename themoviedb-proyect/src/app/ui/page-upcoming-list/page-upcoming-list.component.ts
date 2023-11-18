@@ -20,7 +20,7 @@ export class PageUpcomingListComponent {
   }
 
   loadNewPage() {
-    this.service.getPopularListPage(this.pageNumber).subscribe(resp => {
+    this.service.getUpcomingList(this.pageNumber).subscribe(resp => {
       this.upcomingList = resp.results;
       this.count = resp.total_results;
     })
