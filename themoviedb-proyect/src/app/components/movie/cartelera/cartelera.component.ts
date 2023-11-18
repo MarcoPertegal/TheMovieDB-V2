@@ -6,6 +6,7 @@ import { Video } from 'src/app/models/movie-trailer.interface';
 import { AccountService } from 'src/app/services/account.service';
 import { MovieService } from 'src/app/services/movie.service';
 
+
 @Component({
   selector: 'app-cartelera',
   templateUrl: './cartelera.component.html',
@@ -28,11 +29,11 @@ export class CarteleraComponent implements OnInit {
     this.service.getMovieId(this.id).subscribe(resp => {
       this.movieDetails = resp;
       this.watchListsIds = localStorage.getItem('WATCHLISTS_IDS');
-      const arrayWatchLists = this.watchListsIds!.split(', ');
+      const arrayWatchLists = this.watchListsIds!.split(',');
       this.isWatchListAdd(arrayWatchLists);
     });
   }
-
+ 
   getCartelera() {
     return `https://www.themoviedb.org/t/p/w533_and_h300_bestv2/${this.movieDetails.backdrop_path}`
   }
