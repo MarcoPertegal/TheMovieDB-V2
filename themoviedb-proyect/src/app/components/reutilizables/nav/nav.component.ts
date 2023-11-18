@@ -26,7 +26,7 @@ export class NavComponent implements OnInit {
   doLogin() {
     this.authenticationService.getRequestToken().subscribe(resp => {
       localStorage.setItem('REQUEST_TOKEN', resp.request_token);
-      window.location.href = `https://www.themoviedb.org/authenticate/${localStorage.getItem('REQUEST_TOKEN')}?redirect_to=http://localhost:4200/approved`;
+      window.location.href = `https://www.themoviedb.org/authenticate/${localStorage.getItem('REQUEST_TOKEN')}?redirect_to=http://localhost:4200/page-profile`;
     });
   }
 
