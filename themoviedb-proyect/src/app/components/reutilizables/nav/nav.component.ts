@@ -13,13 +13,14 @@ export class NavComponent implements OnInit {
 
   constructor(private authenticationService: AuthenticationService, private accountService: AccountService, private router: Router) { }
   ngOnInit() {
+    localStorage.setItem('isLoggedIn', 'false');
     this.accountService.getAccountDetails().subscribe(resp => {
       localStorage.setItem('USERNAME', resp.username);
       localStorage.setItem('ACCOUNT_ID', resp.id.toString());
       localStorage.setItem('AVATAR', `https://image.tmdb.org/t/p/w500${resp.avatar.tmdb.avatar_path}`)
       this.isLoggedIn = true;
+      localStorage.setItem('isLoggedIn', 'true');
     });
-   
   }
 
   doLogin() {
