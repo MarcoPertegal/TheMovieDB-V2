@@ -13,13 +13,13 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./cartelera.component.css']
 })
 export class CarteleraComponent implements OnInit {
-
   movieDetails!: MovieDetailsResponse;
   id!: number;
   route: ActivatedRoute = inject(ActivatedRoute);
   currentRate!: number;
   watchListsIds!: string | null;
   isWatchLists: boolean = false;
+  arrayWatchLists: string[] = [];
 
   constructor(private service: MovieService, private accountService: AccountService) {
     this.id = this.route.snapshot.params['id'];
@@ -29,8 +29,10 @@ export class CarteleraComponent implements OnInit {
     this.service.getMovieId(this.id).subscribe(resp => {
       this.movieDetails = resp;
       this.watchListsIds = localStorage.getItem('WATCHLISTS_IDS');
-      const arrayWatchLists = this.watchListsIds!.split(',');
-      this.isWatchListAdd(arrayWatchLists);
+      this.arrayWatchLists = this.watchListsIds!.split(',');
+      console.log(this.arrayWatchLists)
+      this.isWatchListAdd(this.arrayWatchLists);
+      this.isWatchListDelete();
     });
   }
  
@@ -56,6 +58,18 @@ export class CarteleraComponent implements OnInit {
 
   isWatchListAdd(arrayWatchLists: string[]) {
     this.isWatchLists = arrayWatchLists.includes(this.movieDetails.id.toString());
+  }
+
+  deleteWatchlist(id: number) {
+    this.accountService.deleteWatchlist(id).subscribe(() => {
+      this.isWatchLists = false;
+      console.log(this.isWatchLists)
+      console.log(this.arrayWatchLists)
+    });
+  }
+
+  isWatchListDelete(){
+    this.arrayWatchLists = this.arrayWatchLists.filter(item => item !== this.movieDetails.id.toString());
   }
 
 }
