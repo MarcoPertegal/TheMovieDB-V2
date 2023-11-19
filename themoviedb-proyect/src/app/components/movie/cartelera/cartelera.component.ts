@@ -21,8 +21,6 @@ export class CarteleraComponent implements OnInit {
   watchListsIds!: string | null;
   isWatchLists: boolean = false;
 
-  // arrayWatchLists: string[] = [];
-
   constructor(private service: MovieService, private accountService: AccountService) {
     this.id = this.route.snapshot.params['id'];
   }
@@ -34,6 +32,7 @@ export class CarteleraComponent implements OnInit {
       const arrayWatchLists = this.watchListsIds!.split(',');
       console.log(arrayWatchLists)
       this.isWatchListAdd(arrayWatchLists);
+      console.log(this.isWatchLists)
     });
   }
  
@@ -54,7 +53,9 @@ export class CarteleraComponent implements OnInit {
   }
 
   addWatchListMovies(id: number) {
-    this.accountService.addWatchListsMovies(id).subscribe();
+    this.accountService.addWatchListsMovies(id).subscribe(() => {
+      console.log('añadido '+id)
+    });
   }
 
   isWatchListAdd(arrayWatchLists: string[]) {
@@ -62,17 +63,16 @@ export class CarteleraComponent implements OnInit {
   }
 
   removeWatchListMovies(id: number) {
-    const arrayWatchLists = this.watchListsIds ? this.watchListsIds.split(',') : [];
-    const updatedArray = arrayWatchLists.filter(item => item !== id.toString());
-    this.updateWatchList(updatedArray);
-  }
+    this.accountService.removeWatchListsMovies(id).subscribe(() =>{
+      console.log('eliminado ' + id)
+      console.log(this.isWatchLists)
+    });
+  };
 
   updateWatchList(arrayWatchLists: string[]) {
     this.watchListsIds = arrayWatchLists.join(',');
     localStorage.setItem('WATCHLISTS_IDS', this.watchListsIds);
     this.isWatchListAdd(arrayWatchLists);
     console.log(arrayWatchLists)
-
   }
-
 }
