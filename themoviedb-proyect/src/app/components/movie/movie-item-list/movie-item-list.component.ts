@@ -15,6 +15,7 @@ export class MovieItemListComponent implements OnInit {
   isFavoriteMovie: boolean = false;
 
   constructor(private router: Router, private accountService: AccountService) { }
+
   ngOnInit() {
     const isloggedIn = localStorage.getItem('isLoggedIn');
 
