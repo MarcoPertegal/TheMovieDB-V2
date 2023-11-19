@@ -16,9 +16,13 @@ export class MovieItemListComponent implements OnInit {
 
   constructor(private router: Router, private accountService: AccountService) { }
   ngOnInit() {
-    this.favoriteIds = localStorage.getItem('FAVORITE_IDS');
-    const arrayFavoriteIds = this.favoriteIds!.split(',');
-    this.isFavoriteMethod(arrayFavoriteIds);
+    const isloggedIn = localStorage.getItem('isLoggedIn');
+
+    if (isloggedIn == 'true') {
+      this.favoriteIds = localStorage.getItem('FAVORITE_IDS');
+      const arrayFavoriteIds = this.favoriteIds!.split(',');
+      this.isFavoriteMethod(arrayFavoriteIds);
+    }
   }
 
   getImage() {
@@ -30,10 +34,18 @@ export class MovieItemListComponent implements OnInit {
   }
 
   addToFavorites(id: number) {
-    this.accountService.addMovieToFovorites(id).subscribe();
+    this.accountService.addMovieToFovorites(id).subscribe(() => {
+      console.log("Película con id:" + id + " agregada a favoritos");
+    });
   }
 
   isFavoriteMethod(arrayFavoriteIds: string[]) {
     this.isFavoriteMovie = arrayFavoriteIds.includes(this.movie.id.toString());
+  }
+
+  deleteFromFavorites(id: number) {
+    this.accountService.deleteMovieFromFovorites(id).subscribe(() => {
+      console.log("Película con id:" + id + " eliminada de favoritos");
+    });
   }
 }
