@@ -40,4 +40,9 @@ export class NavComponent implements OnInit {
   isActive(route: string): boolean {
     return this.router.isActive(route, true);
   }
+  logout() {
+    this.accountService.deleteSession().subscribe();
+    localStorage.setItem('isLoggedIn', 'false');
+    this.isLoggedIn = false;
+  }
 }

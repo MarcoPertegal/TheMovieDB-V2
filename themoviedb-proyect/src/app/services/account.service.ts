@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { AccountDetailsResponse } from '../models/account-details.interface';
@@ -116,6 +116,24 @@ export class AccountService {
         }
       }
     )
+  }
+
+  deleteSession() {
+    const sessionId = localStorage.getItem('SESSION_ID') ?? '';
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+    });
+
+    return this.http.delete(`${environment.baseUrl}/authentication/session`,
+      {
+        headers: headers,
+        params: {
+          session_id: sessionId
+        }
+      }
+    );
   }
 }
 

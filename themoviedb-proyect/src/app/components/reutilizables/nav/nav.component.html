@@ -23,7 +23,12 @@
             <button id="login" *ngIf="!isLoggedIn" class="navbar-text col-md-1 rounded-3 mt-2" (click)="doLogin()">
                 Login
             </button>
-            <div id="user" *ngIf="isLoggedIn" class="navbar-text col-md-2">
+            <div id="user" *ngIf="isLoggedIn" class="navbar-text col-md-3">
+                <div>
+                    <button id="login" class="navbar-text col-md-1 rounded-3 mt-2" (click)="logout()">
+                        Logout
+                    </button>
+                </div>
                 <a routerLink="/page-profile">
                     <p class="text-light">{{getUsername()}}</p>
                 </a>
