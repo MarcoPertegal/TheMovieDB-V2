@@ -31,7 +31,7 @@
                     </svg>
                 </div>
 
-                <div *ngIf="isWatchLists" (click)="deleteWatchlist(movieDetails.id)">
+                <div *ngIf="isWatchLists" (click)="removeWatchListMovies(movieDetails.id)">
                     <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="yellow"
                         class="bi bi-plus-circle-fill pt-3" viewBox="0 0 16 16">
                         <path

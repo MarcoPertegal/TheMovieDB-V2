@@ -80,24 +80,6 @@ export class AccountService {
       }
     )
   }
-
-  deleteWatchlist(id: number): Observable<AddItemResponse> {
-    let accountId = localStorage.getItem('ACCOUNT_ID');
-    let sessionId = localStorage.getItem('SESSION_ID');
-    return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/watchlist?session_id=${sessionId}`,
-      {
-        "media_type": "movie",
-        "media_id": id,
-        "watchlist": true
-      },
-      {
-        headers: {
-          'accept': 'application/json',
-          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
-        }
-      }
-    );
-  }
 }
 
 
