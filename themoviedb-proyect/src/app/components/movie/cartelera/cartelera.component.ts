@@ -1,7 +1,8 @@
-import { Component, OnInit, SecurityContext, inject } from '@angular/core';
+import { Component, Input, OnInit, SecurityContext, inject } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MovieDetailsResponse } from 'src/app/models/movie-details.interface';
+import { Movie } from 'src/app/models/movie-list.interface';
 import { Video } from 'src/app/models/movie-trailer.interface';
 import { AccountService } from 'src/app/services/account.service';
 import { MovieService } from 'src/app/services/movie.service';
@@ -13,7 +14,6 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./cartelera.component.css']
 })
 export class CarteleraComponent implements OnInit {
-
   movieDetails!: MovieDetailsResponse;
   id!: number;
   route: ActivatedRoute = inject(ActivatedRoute);
@@ -30,7 +30,9 @@ export class CarteleraComponent implements OnInit {
       this.movieDetails = resp;
       this.watchListsIds = localStorage.getItem('WATCHLISTS_IDS');
       const arrayWatchLists = this.watchListsIds!.split(',');
+      console.log(arrayWatchLists)
       this.isWatchListAdd(arrayWatchLists);
+      console.log(this.isWatchLists)
     });
   }
  
@@ -51,11 +53,26 @@ export class CarteleraComponent implements OnInit {
   }
 
   addWatchListMovies(id: number) {
-    this.accountService.addWatchListsMovies(id).subscribe();
+    this.accountService.addWatchListsMovies(id).subscribe(() => {
+      console.log('añadido '+id)
+    });
   }
 
   isWatchListAdd(arrayWatchLists: string[]) {
     this.isWatchLists = arrayWatchLists.includes(this.movieDetails.id.toString());
   }
 
+  removeWatchListMovies(id: number) {
+    this.accountService.removeWatchListsMovies(id).subscribe(() =>{
+      console.log('eliminado ' + id)
+      console.log(this.isWatchLists)
+    });
+  };
+
+  updateWatchList(arrayWatchLists: string[]) {
+    this.watchListsIds = arrayWatchLists.join(',');
+    localStorage.setItem('WATCHLISTS_IDS', this.watchListsIds);
+    this.isWatchListAdd(arrayWatchLists);
+    console.log(arrayWatchLists)
+  }
 }

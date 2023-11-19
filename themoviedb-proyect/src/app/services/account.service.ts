@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { AccountDetailsResponse } from '../models/account-details.interface';
 import { Observable } from 'rxjs';
@@ -63,6 +63,7 @@ export class AccountService {
       }
     );
   }
+
   addMovieToFovorites(movieId: number): Observable<AddItemResponse> {
     let accountId = localStorage.getItem('ACCOUNT_ID');
     return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/favorite`,
@@ -79,6 +80,24 @@ export class AccountService {
       }
     )
   }
+
+  removeWatchListsMovies(id: number): Observable<AddItemResponse> {
+    let accountId = localStorage.getItem('ACCOUNT_ID');
+    let sessionId = localStorage.getItem('SESSION_ID');
+    return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/watchlist?session_id=${sessionId}`,
+      {
+        "media_type": "movie",
+        "media_id": id,
+        "watchlist": false
+      },
+      {
+        headers: {
+          'accept': 'application/json',
+          'Authorization': `Bearer ${environment.tmdbTokenMarco}`
+        }
+      }
+    );
+
   deleteMovieFromFovorites(movieId: number): Observable<AddItemResponse> {
     let accountId = localStorage.getItem('ACCOUNT_ID');
     return this.http.post<AddItemResponse>(`${environment.baseUrl}/account/${accountId}/favorite`,

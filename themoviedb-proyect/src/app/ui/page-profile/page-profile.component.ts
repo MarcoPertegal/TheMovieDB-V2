@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie-list.interface';
 import { AccountService } from 'src/app/services/account.service';
 
@@ -29,7 +29,6 @@ export class PageProfileComponent implements OnInit {
       const watchListsIds = this.movieListWatchList.map(movie => movie.id);
       localStorage.setItem('WATCHLISTS_IDS', watchListsIds.toString());
     });
-
   }
 
   getUsername() {
