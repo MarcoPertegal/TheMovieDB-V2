@@ -19,7 +19,7 @@ export class AuthenticationApprovedComponent {
     this.authenticationService.createSession(token!).subscribe(resp => {
       localStorage.setItem('SESSION_ID', resp.session_id);
       localStorage.setItem('SUCCESS', resp.success.toString());
-      this.router.navigate([`/page-home`]);
+      this.router.navigate([`/page-profile`]);
     });
   }
 }
